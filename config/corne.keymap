@@ -50,10 +50,10 @@
 
                 nav_layer {
                         bindings = <
-   &trans  &trans    &to TAP   &to QWERTY  &to BASE    &trans      &kp C_AC_REDO  &kp C_AC_PAST  &kp C_AC_COPY  &kp C_AC_CUT  &kp C_AC_UNDO  &trans
-   &trans  &kp LGUI  &kp LALT  &kp LCTRL   &kp LSHIFT  &trans      &kp CAPS       &kp LEFT       &kp DOWN       &kp UP        &kp RIGHT      &trans
-   &trans  &trans    &kp RALT  &to NUM     &to NAV     &trans      &kp INS        &kp HOME       &kp PG_DN      &kp PG_UP     &kp END        &trans
-                               &kp LGUI    &trans      &kp SPACE   &kp RET        &mo FUN        &kp RALT
+   &trans  &trans    &to TAP   &to QWERTY  &to BASE    &trans      &trans    &trans    &trans     &trans     &trans     &trans
+   &trans  &kp LGUI  &kp LALT  &kp LCTRL   &kp LSHIFT  &trans      &kp CAPS  &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &trans
+   &trans  &trans    &kp RALT  &to NUM     &to NAV     &trans      &kp INS   &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &trans
+                               &kp LGUI    &trans      &kp SPACE   &kp RET   &mo FUN   &kp RALT
                         >;
                 };
 
