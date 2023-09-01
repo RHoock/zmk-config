@@ -26,7 +26,7 @@
    &trans &kp Q       &kp W       &kp F        &kp P          &kp B           &kp J    &kp L         &kp U       &kp Y       &kp SQT     &trans
    &trans &mt LGUI A  &mt LALT R  &mt LCTRL S  &mt LSHFT T    &kp G           &kp M    &mt RSHIFT N  &mt RCTL E  &mt RALT I  &mt RGUI O  &trans
    &trans &kp Z       &kp X       &kp C        &kp D          &kp V           &kp K    &kp H         &kp COMMA   &kp DOT     &kp FSLH    &trans
-                                    &lt NUM ESC  &lt NAV SPACE  &lt MEDIA TAB   &kp RET  &lt SYM BSPC  &lt FUN DEL
+                                  &lt NUM ESC  &lt NAV SPACE  &lt MEDIA TAB   &kp RET  &lt SYM BSPC  &lt FUN DEL
                         >;
                 };
 
