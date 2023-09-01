@@ -65,13 +65,8 @@
                 };
 
                 button_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &trans  &kp C_AC_UNDO  &kp C_AC_CUT  &kp C_AC_COPY  &kp C_AC_PAST  &kp C_AC_REDO   &kp C_AC_REDO   &kp C_AC_PAST  &kp C_AC_COPY  &kp C_AC_CUT  &kp C_AC_UNDO  &trans
+   &trans  &kp C_AC_UNDO  &kp C_AC_CUT  &kp C_AC_COPY  &kp C_AC_PAST  &kp C_AC_REDO   &kp C_AC_REDO   &trans         &kp C_AC_COPY  &kp C_AC_CUT  &kp C_AC_UNDO  &trans
    &trans  &kp LGUI       &kp LALT      &kp LCTRL      &kp LSHIFT     &trans          &trans          &kp RSHIFT     &kp RCTRL      &kp RALT      &kp RGUI       &trans
    &trans  &kp C_AC_UNDO  &kp C_AC_CUT  &kp C_AC_COPY  &kp C_AC_PAST  &kp C_AC_REDO   &kp C_AC_REDO   &kp C_AC_PAST  &kp C_AC_COPY  &kp C_AC_CUT  &kp C_AC_UNDO  &trans
                                         &kp LGUI       &trans         &kp SPACE       &kp RET         &trans         &kp RALT
