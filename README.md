@@ -1,2 +1,2 @@
 # zmk-config
-![keymap](.keymap.png)
+![keymap](keymap.png)
