@@ -19,7 +19,7 @@
 
                 base_layer {
                       bindings = <
-   &mo SYM    &kp Q  &kp W  &kp F    &kp P      &kp B     &kp J    &kp L    &kp U      &kp Y    &kp SQT   &none
+   &mo SYM    &kp Q  &kp W  &kp F    &kp P      &kp B     &kp J    &kp L    &kp U      &kp Y    &kp SQT   &kp MINUS
    &kp LGUI   &kp A  &kp R  &kp S    &kp T      &kp G     &kp M    &kp N    &kp E      &kp I    &kp O     &kp RALT
    &kp LSHFT  &kp Z  &kp X  &kp C    &kp D      &kp V     &kp K    &kp H    &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
                             &mo NUM  &kp SPACE  &kp TAB   &kp RET  &mo NAV  &kp DEL
