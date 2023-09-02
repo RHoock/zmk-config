@@ -57,7 +57,7 @@
                 navsym_layer {
                         bindings = <
    &trans     &kp EXCL  &kp AMPS    &kp LBRC  &kp RBRC  &kp CARET    &trans  &trans    &trans     &trans     &trans     &trans
-   &kp TILDE  &kp HASH  &kp AT      &kp LBKT  &kp LBKT  &kp PRCNT    &trans  &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &trans
+   &kp TILDE  &kp HASH  &kp AT      &kp LBKT  &kp RBKT  &kp PRCNT    &trans  &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &trans
    &trans     &kp DLLR  &kp RA(N5)  &kp LT    &kp GT    &kp BSLH     &trans  &trans    &kp PG_DN  &kp PG_UP  &trans     &trans
                                     &kp LPAR  &kp RPAR  &kp UNDER    &trans  &trans    &to BASE
                         >;
