@@ -33,24 +33,24 @@
             };
         };
 
-        td2: tap_dance_2 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "CAPS";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp LSHFT>, <&kp CAPS>;
-            };
-        };
+//        td2: tap_dance_2 {
+//            compatible = "zmk,behavior-tap-dance";
+//            label = "CAPS";
+//            #binding-cells = <0>;
+//            tapping-term-ms = <200>;
+//            bindings = <&kp LSHFT>, <&kp CAPS>;
+//            };
+//        };
 
         keymap {
                 compatible = "zmk,keymap";
 
                 base_layer {
                       bindings = <
-   &tog EXP   &kp Q  &kp W  &kp F  &kp P  &kp B        &kp J     &kp L      &kp U      &kp Y    &kp SEMI  &kp SQT
-   &kp BSLH   &kp A  &kp R  &kp S  &kp T  &kp G        &kp M     &kp N      &kp E      &kp I    &kp O     &kp MINUS
-   &kp LCTRL  &kp Z  &kp X  &kp C  &kp D  &kp V        &kp K     &kp H      &kp COMMA  &kp DOT  &kp FSLH  &kp GRAVE
-                            &td1   &td2   &kp LGUI     &kp RALT  &kp SPACE  &td0  
+   &tog EXP   &kp Q  &kp W  &kp F  &kp P      &kp B        &kp J     &kp L      &kp U      &kp Y    &kp SEMI  &kp SQT
+   &kp BSLH   &kp A  &kp R  &kp S  &kp T      &kp G        &kp M     &kp N      &kp E      &kp I    &kp O     &kp MINUS
+   &kp LCTRL  &kp Z  &kp X  &kp C  &kp D      &kp V        &kp K     &kp H      &kp COMMA  &kp DOT  &kp FSLH  &kp GRAVE
+                            &td1   &kp LSHFT  &kp LGUI     &kp RALT  &kp SPACE  &td0  
                         >;
                 };
 
@@ -59,16 +59,16 @@
    &trans     &kp EXCL  &kp AMPS    &kp LBRC  &kp RBRC  &kp CARET    &trans  &trans    &trans     &trans     &trans     &trans
    &kp TILDE  &kp HASH  &kp AT      &kp LBKT  &kp LBKT  &kp PRCNT    &trans  &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &trans
    &trans     &kp DLLR  &kp RA(N5)  &kp LT    &kp GT    &kp BSLH     &trans  &trans    &kp PG_DN  &kp PG_UP  &trans     &trans
-                                    &kp LPAR  &kp RPAR  &kp UNDER    &trans  &trans    &trans
+                                    &kp LPAR  &kp RPAR  &kp UNDER    &trans  &trans    &to BASE
                         >;
                 };
 
                 num_layer {
                         bindings = <
-   &trans  &trans  &trans  &trans  &trans  &trans      &kp KP_MULTIPLY  &kp N7  &kp N8      &kp N9  &kp KP_DIVIDE  &trans
-   &trans  &trans  &trans  &trans  &trans  &trans      &kp KP_PLUS      &kp N4  &kp N5      &kp N6  &kp KP_MINUS   &trans
-   &trans  &trans  &trans  &trans  &trans  &trans      &trans           &kp N1  &kp N2      &kp N3  &trans         &trans
-                           &trans  &trans  &trans      &kp KP_EQUAL     &kp N0  &kp KP_DOT
+   &trans  &trans  &trans  &trans    &trans  &trans      &kp KP_MULTIPLY  &kp N7  &kp N8      &kp N9  &kp KP_DIVIDE  &trans
+   &trans  &trans  &trans  &trans    &trans  &trans      &kp KP_PLUS      &kp N4  &kp N5      &kp N6  &kp KP_MINUS   &trans
+   &trans  &trans  &trans  &trans    &trans  &trans      &trans           &kp N1  &kp N2      &kp N3  &trans         &trans
+                           &to BASE  &trans  &trans      &kp KP_EQUAL     &kp N0  &kp KP_DOT
                         >;
                 };
 
