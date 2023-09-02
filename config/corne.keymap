@@ -17,10 +17,28 @@
         behaviors {
         td0: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_0";
+            label = "NAVSYM";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&caps_word>, <&kp CAPS>;
+            bindings = <&mo NAVSYM>, <&to NAVSYM>;
+            };
+        };
+
+        td1: tap_dance_1 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "NUM";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mo NUM>, <&to NUM>;
+            };
+        };
+
+        td2: tap_dance_2 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "CAPS";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LSHFT>, <&kp CAPS>;
             };
         };
 
@@ -29,10 +47,10 @@
 
                 base_layer {
                       bindings = <
-   &tog EXP   &kp Q  &kp W  &kp F    &kp P      &kp B        &kp J      &kp L       &kp U      &kp Y    &kp SEMI  &kp SQT
-   &kp BSLH   &kp A  &kp R  &kp S    &kp T      &kp G        &kp M      &kp N       &kp E      &kp I    &kp O     &kp MINUS
-   &kp LCTRL  &kp Z  &kp X  &kp C    &kp D      &kp V        &kp K      &kp H       &kp COMMA  &kp DOT  &kp FSLH  &kp GRAVE
-                            &mo NUM  &kp LSHFT  &kp LGUI     &kp SPACE  &mo NAVSYM  &kp RALT
+   &tog EXP   &kp Q  &kp W  &kp F  &kp P  &kp B        &kp J     &kp L      &kp U      &kp Y    &kp SEMI  &kp SQT
+   &kp BSLH   &kp A  &kp R  &kp S  &kp T  &kp G        &kp M     &kp N      &kp E      &kp I    &kp O     &kp MINUS
+   &kp LCTRL  &kp Z  &kp X  &kp C  &kp D  &kp V        &kp K     &kp H      &kp COMMA  &kp DOT  &kp FSLH  &kp GRAVE
+                            &td1   &td2   &kp LGUI     &kp RALT  &kp SPACE  &td0  
                         >;
                 };
 
@@ -56,7 +74,7 @@
 
                 exp_layer {
                         bindings = <
-   &trans  &trans      &trans      &trans       &trans       &trans   &trans  &td0          &trans      &trans       &trans      &trans
+   &trans  &trans      &trans      &trans       &trans       &trans   &trans  &trans        &trans      &trans       &trans      &trans
    &trans  &mt LGUI A  &mt LALT R  &mt LCTRL S  &mt LSHFT T  &kp G    &kp M   &mt RSHIFT N  &mt RCTL E  &mt RALT I   &mt RGUI O  &trans
    &trans  &trans      &trans      &trans       &trans       &trans   &trans  &trans        &trans      &trans       &trans      &trans
                        &trans      &trans       &trans       &trans   &trans  &trans
