@@ -7,8 +7,9 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 
-#define MO_TOG(layer) &mo_tog layer layer
+#define MO_TO(layer) &td_ly layer layer
 
 #define BASE 0
 #define NAVSYM 1
@@ -26,13 +27,11 @@
             };
 
 
-            mo_tog: behavior_mo_tog {
-                compatible = "zmk,behavior-hold-tap";
-                label = "mo_tog";
-                #binding-cells = <2>;
-                flavor = "hold-preferred";
+            td_ly: tap_dance_layer {
+                compatible = "zmk,behavior-tap-dance";
+                #binding-cells = <0>;
                 tapping-term-ms = <200>;
-                bindings = <&mo>, <&tog>;
+                bindings = <&mo>, <&to>;
             };
 
             ae: a_ae {
@@ -40,6 +39,22 @@
                 label = "CHANGE_A_TO_AE";
                 #binding-cells = <0>;
                 bindings = <&kp A>, <&kp RA(Q)>;
+                mods = <(MOD_LALT)>;
+            };
+	
+            oe: o_oe {
+                compatible = "zmk,behavior-mod-morph";
+                label = "CHANGE_O_TO_OE";
+                #binding-cells = <0>;
+                bindings = <&kp O>, <&kp RA(P)>;
+                mods = <(MOD_LALT)>;
+            };
+	
+            ue: u_ue {
+                compatible = "zmk,behavior-mod-morph";
+                label = "CHANGE_U_TO_UE";
+                #binding-cells = <0>;
+                bindings = <&kp U>, <&kp RA(Y)>;
                 mods = <(MOD_LALT)>;
             };
 	
@@ -52,6 +67,16 @@
                 flavor = "tap-preferred";
                 bindings = <&kp>, <&kp>;
             };
+	
+	    hma: homerow_a_mod {
+                compatible = "zmk,behavior-hold-tap";
+                label = "HOMEROW_A_MOD";
+                #binding-cells = <2>;
+                tapping-term-ms = <150>;
+                quick-tap-ms = <0>;
+                flavor = "tap-preferred";
+                bindings = <&kp>, <&ae>;
+            };
         };
 
         keymap {
@@ -59,19 +84,19 @@
 
                 base_layer {
                       bindings = <
-   &tog EXP   &kp Q  &kp W       &kp F        &kp P        &kp B        &kp J     &kp L      &kp U      &kp Y    &kp SEMI  &kp SQT
-   &kp BSLH   &ae    &hm LALT R  &hm LCTRL S  &hm LSHFT T  &kp G        &kp M     &hm LSHFT N      &hm RCTRL E      &hm LALT I    &kp O     &kp MINUS
-   &kp LALT   &kp Z  &kp X       &kp C        &kp D        &kp V        &kp K     &kp H      &kp COMMA  &kp DOT  &kp FSLH  &kp GRAVE
-                                 MO_TOG(NUM)  &td_mt       &kp LGUI     &kp RALT  &kp SPACE  MO_TOG(NAVSYM)  
+   &tog EXP   &kp Q  &kp W  &kp F       &kp P        &kp B          &kp J     &kp L      &ue          &kp Y        &kp SEMI    &kp SQT
+   &kp BSLH   &hma LGUI 0   &hm LALT R  &hm LCTRL S  &hm LSHFT T    &kp G     &kp M      &hm LSHFT N  &hm RCTRL E  &hm LALT I  &oe     &kp MINUS
+   &kp LALT   &kp Z  &kp X  &kp C       &kp D        &kp V          &kp K     &kp H      &kp COMMA    &kp DOT      &kp FSLH    &kp GRAVE
+                            MO_TO(NUM)  &td_mt       &kp LGUI       &kp RALT  &kp SPACE  MO_TO(NAVSYM)  
                         >;
                 };
 
                 navsym_layer {
                         bindings = <
-   &trans     &kp EXCL  &kp AMPS    &kp LBRC  &kp RBRC  &kp CARET    &trans  &trans    &kp K_VOL_DN  &kp K_VOL_UP  &trans     &trans
-   &kp TILDE  &kp HASH  &kp AT      &kp LBKT  &kp RBKT  &kp PRCNT    &trans  &kp LEFT  &kp DOWN      &kp UP        &kp RIGHT  &trans
-   &trans     &kp DLLR  &kp RA(N5)  &kp LT    &kp GT    &kp BSLH     &trans  &trans    &kp PG_DN     &kp PG_UP     &trans     &trans
-                                    &kp LPAR  &kp RPAR  &kp UNDER    &trans  &trans    &to BASE
+   &trans     &kp EXCL  &kp AMPS    &kp LBRC  &kp RBRC  &kp CARET    &kp K_REDO   &kp K_UNDO  &kp K_VOL_DN  &kp K_VOL_UP  &trans     &trans
+   &kp TILDE  &kp HASH  &kp AT      &kp LBKT  &kp RBKT  &kp PRCNT    &kp K_PASTE  &kp LEFT    &kp DOWN      &kp UP        &kp RIGHT  &trans
+   &trans     &kp DLLR  &kp RA(N5)  &kp LT    &kp GT    &kp BSLH     &kp K_CUT    &kp COPY    &kp PG_DN     &kp PG_UP     &trans     &trans
+                                    &kp LPAR  &kp RPAR  &kp UNDER    &trans       &trans      &to BASE
                         >;
                 };
 
@@ -82,14 +107,15 @@
    &trans  &kp F1  &kp F2   &kp F3    &kp F4   &trans      &trans           &kp N1  &kp N2      &kp N3  &trans         &trans
                             &to BASE  &trans   &trans      &kp KP_EQUAL     &kp N0  &kp KP_DOT
                         >;
+		
                 };
 
                 exp_layer {
                         bindings = <
-   &trans  &trans      &trans      &trans       &trans       &trans   &trans  &trans        &trans      &trans       &trans      &trans
-   &trans  &trans  &trans  &trans  &trans  &trans    &trans   &trans  &trans  &trans   &trans  &trans
-   &trans  &trans      &trans      &trans       &trans       &trans   &trans  &trans        &trans      &trans       &trans      &trans
-                       &trans      &sys_reset       &bootloader       &bootloader   &sys_reset  &trans
+   &trans  &trans  &trans        &trans      &trans         &trans       &trans      &trans        &trans        &trans        &trans      &trans
+   &trans  &trans  &trans        &trans      &trans         &trans       &trans      &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_PRV    &bt BT_NXT  &trans
+   &trans  &trans  &trans        &trans      &trans         &trans       &trans      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_CLR  &trans
+                   &out OUT_USB  &sys_reset  &bootloader    &bootloader  &sys_reset  &out OUT_BLE
                         >;
                 };
 
