@@ -60,7 +60,7 @@
                 base_layer {
                       bindings = <
    &tog EXP   &kp Q  &kp W       &kp F        &kp P        &kp B        &kp J     &kp L      &kp U      &kp Y    &kp SEMI  &kp SQT
-   &kp BSLH   &ae    &hm LALT R  &hm LCTRL S  &hm LSHFT T  &kp G        &kp M     &hm LSHFT N      &hm RCTCL E      &hm LALT I    &kp O     &kp MINUS
+   &kp BSLH   &ae    &hm LALT R  &hm LCTRL S  &hm LSHFT T  &kp G        &kp M     &hm LSHFT N      &hm RCTRL E      &hm LALT I    &kp O     &kp MINUS
    &kp LALT   &kp Z  &kp X       &kp C        &kp D        &kp V        &kp K     &kp H      &kp COMMA  &kp DOT  &kp FSLH  &kp GRAVE
                                  MO_TOG(NUM)  &td_mt       &kp LGUI     &kp RALT  &kp SPACE  MO_TOG(NAVSYM)  
                         >;
