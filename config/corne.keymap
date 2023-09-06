@@ -56,13 +56,22 @@
                 bindings = <&kp U>, <&kp RA(Y)>;
                 mods = <(MOD_LALT)>;
             };
+
+            ss: s_ss {
+                compatible = "zmk,behavior-mod-morph";
+                label = "CHANGE_S_TO_SS";
+                #binding-cells = <0>;
+                bindings = <&kp S>, <&kp RA(S)>;
+                mods = <(MOD_LALT)>;
+            };
 	
 	    hm: homerow_mods {
                 compatible = "zmk,behavior-hold-tap";
                 label = "HOMEROW_MODS";
                 #binding-cells = <2>;
                 tapping-term-ms = <150>;
-                quick-tap-ms = <0>;
+                quick-tap-ms = <100>;
+		global-quick-tap;
                 flavor = "tap-preferred";
                 bindings = <&kp>, <&kp>;
             };
@@ -72,9 +81,32 @@
                 label = "HOMEROW_A_MOD";
                 #binding-cells = <2>;
                 tapping-term-ms = <150>;
-                quick-tap-ms = <0>;
+                quick-tap-ms = <100>;
+		global-quick-tap;
                 flavor = "tap-preferred";
                 bindings = <&kp>, <&ae>;
+            };
+	
+	    hmo: homerow_o_mod {
+                compatible = "zmk,behavior-hold-tap";
+                label = "HOMEROW_O_MOD";
+                #binding-cells = <2>;
+                tapping-term-ms = <150>;
+                quick-tap-ms = <100>;
+		global-quick-tap;
+                flavor = "tap-preferred";
+                bindings = <&kp>, <&oe>;
+            };
+	
+	    hms: homerow_s_mod {
+                compatible = "zmk,behavior-hold-tap";
+                label = "HOMEROW_S_MOD";
+                #binding-cells = <2>;
+                tapping-term-ms = <150>;
+                quick-tap-ms = <100>;
+		global-quick-tap;
+                flavor = "tap-preferred";
+                bindings = <&kp>, <&ss>;
             };
         };
 
@@ -83,10 +115,10 @@
 
                 base_layer {
                       bindings = <
-   &tog EXP      &kp Q         &kp W       &kp F        &kp P        &kp B       &kp J     &kp L        &ue          &kp Y       &kp SEMI  &kp SQT
-   &kp BSLH      &hma LGUI 0   &hm LALT R  &hm LCTRL S  &hm LSHFT T  &kp G       &kp M     &hm LSHFT N  &hm RCTRL E  &hm LALT I  &oe       &kp MINUS
-   &kp CAPSLOCK  &kp Z         &kp X       &kp C        &kp D        &kp V       &kp K     &kp H        &kp COMMA    &kp DOT     &kp FSLH  &kp GRAVE
-                                           &mo NUM      &trans       &kp LGUI    &kp RALT  &kp SPACE    &mo NAVSYM
+   &mo EXP       &kp Q         &kp W       &kp F         &kp P        &kp B       &kp J     &kp L        &ue          &kp Y       &kp SEMI     &kp SQT
+   &kp BSLH      &hma LGUI 0   &hm LALT R  &hms LCTRL 0  &hm LSHFT T  &kp G       &kp M     &hm LSHFT N  &hm RCTRL E  &hm LALT I  &hmo LGUI 0  &kp MINUS
+   &kp CAPSLOCK  &kp Z         &kp X       &kp C         &kp D        &kp V       &kp K     &kp H        &kp COMMA    &kp DOT     &kp FSLH     &kp GRAVE
+                                           &lt NUM TAB      &kp BSPC       &kp ESC    &kp RET  &kp SPACE    &lt NAVSYM DEL
                         >;
                 };
 
