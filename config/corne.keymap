@@ -14,6 +14,10 @@
 #define NUM 2
 #define EXP 3
 
+&caps_word {
+    continue-list = <UNDERSCORE MINUS>;
+};
+
 / {
         Behaviors {
 //            td_mt: tap_dance_mod_tap {
@@ -24,7 +28,6 @@
 //                bindings = <&mt LSHIFT CAPSLOCK>, <&kp LCTRL>;
 //            };
 //
-//
 //            td_ly: tap_dance_layer {
 //                compatible = "zmk,behavior-tap-dance";
 //                label = "TAP_DANCE_MO_LAYER";
@@ -32,82 +35,90 @@
 //                tapping-term-ms = <200>;
 //                bindings = <&mo>, <&to>;
 //            };
+//
+              td_caps: tap_dance_caps {
+                  compatible = "zmk,behavior-tap-dance";
+                  label = "TAP_DANCE_CAPSLCK";
+                  #binding-cells = <0>;
+                  tapping-term-ms = <200>;
+                  bindings = <&caps_word>, <&kp CAPS>;
+              };
 
-            ae: a_ae {
-                compatible = "zmk,behavior-mod-morph";
-                label = "CHANGE_A_TO_AE";
-                #binding-cells = <0>;
-                bindings = <&kp A>, <&kp RA(Q)>;
-                mods = <(MOD_LALT)>;
-            };
-	
-            oe: o_oe {
-                compatible = "zmk,behavior-mod-morph";
-                label = "CHANGE_O_TO_OE";
-                #binding-cells = <0>;
-                bindings = <&kp O>, <&kp RA(P)>;
-                mods = <(MOD_LALT)>;
-            };
-	
-            ue: u_ue {
-                compatible = "zmk,behavior-mod-morph";
-                label = "CHANGE_U_TO_UE";
-                #binding-cells = <0>;
-                bindings = <&kp U>, <&kp RA(Y)>;
-                mods = <(MOD_LALT)>;
-            };
+              ae: a_ae {
+                  compatible = "zmk,behavior-mod-morph";
+                  label = "CHANGE_A_TO_AE";
+                  #binding-cells = <0>;
+                  bindings = <&kp A>, <&kp RA(Q)>;
+                  mods = <(MOD_LALT)>;
+              };
 
-            ss: s_ss {
-                compatible = "zmk,behavior-mod-morph";
-                label = "CHANGE_S_TO_SS";
-                #binding-cells = <0>;
-                bindings = <&kp S>, <&kp RA(S)>;
-                mods = <(MOD_LALT)>;
-            };
-	
-	    hm: homerow_mods {
-                compatible = "zmk,behavior-hold-tap";
-                label = "HOMEROW_MODS";
-                #binding-cells = <2>;
-                tapping-term-ms = <150>;
-                quick-tap-ms = <100>;
-		global-quick-tap;
-                flavor = "tap-preferred";
-                bindings = <&kp>, <&kp>;
-            };
-	
-	    hma: homerow_a_mod {
-                compatible = "zmk,behavior-hold-tap";
-                label = "HOMEROW_A_MOD";
-                #binding-cells = <2>;
-                tapping-term-ms = <150>;
-                quick-tap-ms = <100>;
-		global-quick-tap;
-                flavor = "tap-preferred";
-                bindings = <&kp>, <&ae>;
-            };
-	
-	    hmo: homerow_o_mod {
-                compatible = "zmk,behavior-hold-tap";
-                label = "HOMEROW_O_MOD";
-                #binding-cells = <2>;
-                tapping-term-ms = <150>;
-                quick-tap-ms = <100>;
-		global-quick-tap;
-                flavor = "tap-preferred";
-                bindings = <&kp>, <&oe>;
-            };
-	
-	    hms: homerow_s_mod {
-                compatible = "zmk,behavior-hold-tap";
-                label = "HOMEROW_S_MOD";
-                #binding-cells = <2>;
-                tapping-term-ms = <150>;
-                quick-tap-ms = <100>;
-		global-quick-tap;
-                flavor = "tap-preferred";
-                bindings = <&kp>, <&ss>;
-            };
+              oe: o_oe {
+                  compatible = "zmk,behavior-mod-morph";
+                  label = "CHANGE_O_TO_OE";
+                  #binding-cells = <0>;
+                  bindings = <&kp O>, <&kp RA(P)>;
+                  mods = <(MOD_LALT)>;
+              };
+
+              ue: u_ue {
+                  compatible = "zmk,behavior-mod-morph";
+                  label = "CHANGE_U_TO_UE";
+                  #binding-cells = <0>;
+                  bindings = <&kp U>, <&kp RA(Y)>;
+                  mods = <(MOD_LALT)>;
+              };
+
+              ss: s_ss {
+                  compatible = "zmk,behavior-mod-morph";
+                  label = "CHANGE_S_TO_SS";
+                  #binding-cells = <0>;
+                  bindings = <&kp S>, <&kp RA(S)>;
+                  mods = <(MOD_LALT)>;
+              };
+
+              hm: homerow_mods {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOMEROW_MODS";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <150>;
+                        quick-tap-ms = <100>;
+                        global-quick-tap;
+                        flavor = "tap-preferred";
+                        bindings = <&kp>, <&kp>;
+              };
+
+              hma: homerow_a_mod {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOMEROW_A_MOD";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <150>;
+                        quick-tap-ms = <100>;
+                        global-quick-tap;
+                        flavor = "tap-preferred";
+                        bindings = <&kp>, <&ae>;
+              };
+
+              hmo: homerow_o_mod {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOMEROW_O_MOD";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <150>;
+                        quick-tap-ms = <100>;
+                        global-quick-tap;
+                        flavor = "tap-preferred";
+                        bindings = <&kp>, <&oe>;
+              };
+
+              hms: homerow_s_mod {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "HOMEROW_S_MOD";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <150>;
+                        quick-tap-ms = <100>;
+                        global-quick-tap;
+                        flavor = "tap-preferred";
+                        bindings = <&kp>, <&ss>;
+              };
         };
 
         keymap {
@@ -115,10 +126,10 @@
 
                 base_layer {
                       bindings = <
-   &mo EXP       &kp Q         &kp W       &kp F         &kp P        &kp B       &kp J     &kp L        &ue          &kp Y       &kp SEMI     &kp SQT
-   &kp BSLH      &hma LGUI 0   &hm LALT R  &hms LCTRL 0  &hm LSHFT T  &kp G       &kp M     &hm LSHFT N  &hm RCTRL E  &hm LALT I  &hmo LGUI 0  &kp MINUS
-   &kp CAPSLOCK  &kp Z         &kp X       &kp C         &kp D        &kp V       &kp K     &kp H        &kp COMMA    &kp DOT     &kp FSLH     &kp GRAVE
-                                           &lt NUM TAB   &kp SPACE    &kp ESC     &kp RET   &kp BSPC     &lt NAVSYM DEL
+   &mo EXP   &kp Q        &kp W       &kp F         &kp P        &kp B       &kp J     &kp L        &ue          &kp Y       &kp SEMI     &kp SQT
+   &kp BSLH  &hma LGUI 0  &hm LALT R  &hms LCTRL 0  &hm LSHFT T  &kp G       &kp M     &hm LSHFT N  &hm RCTRL E  &hm LALT I  &hmo LGUI 0  &kp MINUS
+   &td_caps  &kp Z        &kp X       &kp C         &kp D        &kp V       &kp K     &kp H        &kp COMMA    &kp DOT     &kp FSLH     &kp GRAVE
+                                      &lt NUM TAB   &kp SPACE    &kp ESC     &kp RET   &kp BSPC     &lt NAVSYM DEL
                         >;
                 };
 
