@@ -120,7 +120,7 @@
 
                 base_layer {
                       bindings = <
-   &mo EXP       &kp Q         &kp W       &kp F         &kp P        &kp B             &kp J     &kp L        &ue          &kp Y       &kp SEMI     &kp SQT
+   &tog EXP      &kp Q         &kp W       &kp F         &kp P        &kp B             &kp J     &kp L        &ue          &kp Y       &kp SEMI     &kp SQT
    &kp BSLH      &hma LGUI 0   &hm LALT R  &hms LCTRL 0  &hm LSHFT T  &kp G             &kp M     &hm LSHFT N  &hm RCTRL E  &hm LALT I  &hmo LGUI 0  &kp MINUS
    &kp CAPSLOCK  &kp Z         &kp X       &kp C         &kp D        &kp V             &kp K     &kp H        &kp COMMA    &kp DOT     &kp FSLH     &kp GRAVE
                                            &lt NUM TAB   &kp SPACE    &lt MOUSE ESC     &kp RET   &kp BSPC     &lt NAVSYM DEL
@@ -157,10 +157,10 @@
 
                 exp_layer {
                         bindings = <
-   &trans  &trans  &trans  &trans        &trans      &trans         &trans       &trans        &trans        &trans        &trans      &trans  &trans
-   &trans  &trans  &trans  &trans        &trans      &trans         &trans       &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_PRV    &bt BT_NXT  &trans  &trans
-   &trans  &trans  &trans  &trans        &trans      &trans         &trans       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_CLR  &trans  &trans
-                           &out OUT_USB  &sys_reset  &bootloader    &bootloader  &sys_reset    &out OUT_BLE
+   &tog EXP  &trans  &trans  &trans        &trans      &trans         &trans        &trans        &trans        &trans        &trans      &trans  &trans
+   &trans    &trans  &trans  &trans        &trans      &trans         &trans        &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_PRV    &bt BT_NXT  &trans  &trans
+   &trans    &trans  &trans  &trans        &trans      &trans         &trans        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_CLR  &trans  &trans
+                             &out OUT_USB  &sys_reset  &bootloader    &out OUT_USB  &sys_reset    &out OUT_BLE
                         >;
                 };
 
